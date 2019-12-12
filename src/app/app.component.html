@@ -305,7 +305,7 @@
   <span>Welcome</span>
     <div class="spacer"></div>
   <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-    
+
     <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
       <defs>
         <style>
@@ -322,7 +322,7 @@
       <path class="cls-2" d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
       />
     </svg>
-    
+
   </a>
 </div>
 
@@ -352,6 +352,68 @@
   <!-- Resources -->
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>
+
+
+  <mat-card class="basic-card">
+    <mat-card-header class="card-header">
+      <div mat-card-avatar></div>
+      <mat-card-title>Cadastro de contatos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <section>
+        <mat-checkbox [(ngModel)]="enable" >Enable / Disable</mat-checkbox>
+
+        <p>Before ngTemplate</p>
+
+        <h1 *ngIf="enable else mytemplate">Enabled</h1>
+      </section>
+      <ng-template #mytemplate>
+          <h1>Inside Template!</h1>
+      </ng-template>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Salvar</button>
+      <button mat-raised-button color="warn">Cancelar</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+
+  <mat-card class="basic-card">
+    <mat-card-header class="card-header">
+      <div mat-card-avatar></div>
+      <mat-card-title>Agenda Angular</mat-card-title>
+      <mat-card-subtitle>By Mecyo</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <button mat-list-icon matTooltip="Cadastrar contato">
+          <mat-icon>add</mat-icon>
+        </button>
+          <h3 mat-subheader>Agenda</h3>
+        <mat-list-item *ngFor="let contato of agenda">
+
+          <button mat-list-icon Tooltip="teste">
+              <mat-icon>edit</mat-icon>
+            </button>
+          <button mat-list-icon>
+              <mat-icon>delete</mat-icon>
+            </button>
+          <h4 mat-line>Name: {{contato.name}}</h4>
+          <p mat-line> Phone: {{contato.phone}} </p>
+          <p mat-line> Address: {{contato.address}} </p>
+          <p mat-line> Age: {{contato.age}} </p>
+
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
 
   <div class="card-container">
     <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
@@ -426,7 +488,7 @@
       <pre *ngSwitchCase="'build'">ng build --prod</pre>
   </div>
 
-  <!-- Links -->
+    <!-- Links -->
   <div class="card-container">
     <a class="circle-link" title="Animations" href="https://angular.io/guide/animations" target="_blank" rel="noopener">
       <svg id="Group_20" data-name="Group 20" xmlns="http://www.w3.org/2000/svg" width="21.813" height="23.453" viewBox="0 0 21.813 23.453">
